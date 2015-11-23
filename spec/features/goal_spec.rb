@@ -21,3 +21,8 @@ feature "the goal-creation process" do
   end
 
 end
+
+feature "editing goal" do
+
+
+end
