@@ -11,6 +11,7 @@ feature "the goal-creation process" do
   end
 
   it "redirects to goal show page upon creation" do
+    sign_up_as_jeff
     visit "/goals/new"
     fill_in "Title", with: goal.title
     fill_in "Body", with: goal.body
