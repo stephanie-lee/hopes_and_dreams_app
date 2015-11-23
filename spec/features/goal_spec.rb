@@ -10,9 +10,13 @@ feature "the goal-creation process" do
     expect(page).to have_content("Username")
   end
 
-  it "redirects to goal show page upon creation"
+  it "redirects to goal show page upon creation" do
     visit "/goals/new"
     fill_in "Title", with: goal.title
+    fill_in "Body", with: goal.body
+    check "Private"
+    click_button "Create Goal"
+    expect(page).to have_content(goal.title)
   end
 
 end
