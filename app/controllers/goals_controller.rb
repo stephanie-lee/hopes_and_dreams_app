@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   before_action :redirect_non_user, only: [:new, :create]
 
   def index
+    @goals = Goal.all
   end
 
   def new
@@ -28,6 +29,6 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.permit(:goal).require(:title, :body, :private_goal, :completed)
+    params.require(:goal).permit(:title, :body, :private_goal)
   end
 end
