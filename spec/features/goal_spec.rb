@@ -54,7 +54,15 @@ end
 
 
 feature "edit goals" do
-
+  let!(:first_user) {FactoryGirl.create(:user)}
+  let!(:second_user) {FactoryGirl.create(:user)}
+  let!(:public_goal) {FactoryGirl.create(:goal, user: second_user)}
+  let!(:private_goal) {
+    FactoryGirl.create(:goal,
+                      private_goal: true,
+                      user: second_user)
+                    }
+                    
   it "brings user to edit page from show page" do
     visit goal_url(public_goal)
     click_link("Edit Goal")
