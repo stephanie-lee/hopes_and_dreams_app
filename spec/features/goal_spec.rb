@@ -44,4 +44,23 @@ feature "display goals index page" do
     expect(page).to_not have_content(private_goal.title)
   end
 
+  it "links goals to goal show page" do
+    sign_in(second_user.username)
+    visit goals_url
+    click_link(public_goal.title)
+    expect(page).to have_content(public_goal.body)
+  end
 end
+
+
+# feature "edit goals"
+#
+#   it "brings user to edit page" do
+#     visit
+#
+#   end
+#
+#   it "redirects user to goals index upon completion" do
+#
+#   end
+# end
