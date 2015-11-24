@@ -1,0 +1,42 @@
+<h1>Edit Goal</h1>
+
+<form action=" <%= goal_url(@goal) %> " method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <%= auth_key %>
+  <label>
+    Title
+    <input type="text" name="goal[title]" value=" <%=@goal.title%> ">
+  </label>
+
+  <br><br>
+
+  <label>
+    Body
+    <textarea name="goal[body]"> <%=@goal.body%> </textarea>
+  </label>
+
+  <br><br>
+
+  <label for="Private">
+    Private
+    <input type="checkbox"
+           name="goal[private_goal]"
+           value="<%= true %>"
+           id="Private">
+  </label>
+
+  <br><br>
+
+  <input type="submit" value="Edit Goal">
+</form>
+
+<br>
+
+<form action="<%= goal_url(@goal) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <%= auth_key %>
+  <input type="hidden" name="goal[completed]" value="true">
+  <input type="submit" value="Goal Completed!">
+</form>

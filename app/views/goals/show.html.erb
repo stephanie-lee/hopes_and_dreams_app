@@ -1,0 +1,9 @@
+<h1> <%=@goal.title%> </h1>
+<p>
+  Created by: <%= @goal.user.username %>
+</p>
+<p>
+  <%= @goal.body %>
+</p>
+
+<%= link_to "Edit Goal", edit_goal_url(@goal) %>
