@@ -53,14 +53,16 @@ feature "display goals index page" do
 end
 
 
-# feature "edit goals"
-#
-#   it "brings user to edit page" do
-#     visit
-#
-#   end
-#
-#   it "redirects user to goals index upon completion" do
-#
-#   end
-# end
+feature "edit goals" do
+
+  it "brings user to edit page from show page" do
+    visit goal_url(public_goal)
+    click_link("Edit Goal")
+    expect(page).to have_field("Title")
+    expect(page).to have_selector("input[type=submit][value='Edit Goal']")
+  end
+
+  it "redirects user to goals index upon completion" do
+
+  end
+end
