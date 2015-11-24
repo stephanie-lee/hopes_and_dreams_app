@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_reader :password
+  has_many :goals
 
   before_validation :ensure_session_token
 

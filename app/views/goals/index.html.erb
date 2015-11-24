@@ -1,4 +1,6 @@
 <h1>Goals</h1>
 <% @goals.each do |goal| %>
-  <%= goal.title %> <br>
+  <% if goal.private_goal == false || goal.user == current_user %>
+    <%= goal.title %> <br>
+  <% end %>
 <% end %>

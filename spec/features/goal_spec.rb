@@ -23,13 +23,13 @@ feature "the goal-creation process" do
 end
 
 feature "display goals index page" do
-  let(:first_user) {FactoryGirl.build(:user)}
-  let(:second_user) {FactoryGirl.build(:user)}
-  let(:public_goal) {FactoryGirl.build(:goal), user_id: 2}
-  let(:private_goal) {
-    FactoryGirl.build(:goal,
+  let!(:first_user) {FactoryGirl.create(:user)}
+  let!(:second_user) {FactoryGirl.create(:user)}
+  let!(:public_goal) {FactoryGirl.create(:goal, user: second_user)}
+  let!(:private_goal) {
+    FactoryGirl.create(:goal,
                       private_goal: true,
-                      user_id: 2)
+                      user: second_user)
                     }
 
   it "displays all public goals" do
