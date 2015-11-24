@@ -62,7 +62,7 @@ feature "edit goals" do
                       private_goal: true,
                       user: second_user)
                     }
-                    
+
   it "brings user to edit page from show page" do
     visit goal_url(public_goal)
     click_link("Edit Goal")
@@ -70,7 +70,18 @@ feature "edit goals" do
     expect(page).to have_selector("input[type=submit][value='Edit Goal']")
   end
 
-  it "redirects user to goals index upon completion" do
+  it "redirects user to goals index after editing" do
+    visit edit_goal_url(public_goal)
+    click_button("Edit Goal")
+    expect(page).to have_content "Goals"
+  end
+
+  it "updates edited fields" do
+
+
+  end
+
+  it "if user clicks 'Goal Completed!', 'completed' attribute is now true" do
 
   end
 end

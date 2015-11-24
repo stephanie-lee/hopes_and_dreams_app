@@ -25,6 +25,10 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
   end
 
+  def edit
+    @goal = Goal.find(params[:id])
+  end
+
   private
 
   def redirect_non_user
