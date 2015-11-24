@@ -84,6 +84,8 @@ feature "edit goals" do
   end
 
   it "if user clicks 'Goal Completed!', 'completed' attribute is now true" do
-
+    visit edit_goal_url(public_goal)
+    click_button("Goal Completed!")
+    expect(page).to have_content "#{public_goal.title} COMPLETED"
   end
 end
