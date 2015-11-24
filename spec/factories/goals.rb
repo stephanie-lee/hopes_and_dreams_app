@@ -4,6 +4,7 @@ FactoryGirl.define do
     body {Faker::Lorem.paragraph}
     private_goal false
     completed false
+    user_id -1
   end
 
 end

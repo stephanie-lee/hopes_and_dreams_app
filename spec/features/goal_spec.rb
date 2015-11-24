@@ -22,7 +22,26 @@ feature "the goal-creation process" do
 
 end
 
-feature "editing goal" do
+feature "display goals index page" do
+  let(:first_user) {FactoryGirl.build(:user)}
+  let(:second_user) {FactoryGirl.build(:user)}
+  let(:public_goal) {FactoryGirl.build(:goal), user_id: 2}
+  let(:private_goal) {
+    FactoryGirl.build(:goal,
+                      private_goal: true,
+                      user_id: 2)
+                    }
 
+  it "displays all public goals" do
+    sign_in(first_user.username)
+    visit goals_url
+    expect(page).to have_content(public_goal.title)
+  end
+
+  it "does not display other users' private goals" do
+    sign_in(first_user.username)
+    visit goals_url
+    expect(page).to_not have_content(private_goal.title)
+  end
 
 end
