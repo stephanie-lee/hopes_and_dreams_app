@@ -13,7 +13,7 @@ describe "user comments" do
     end
   end
 
-  features "viewing comments" do
+  feature "viewing comments" do
     it "displays author of comment" do
 
     end
@@ -36,7 +36,7 @@ describe "goal comments" do
     end
   end
 
-  features "viewing comments" do
+  feature "viewing comments" do
     it "displays author of comment" do
 
     end
