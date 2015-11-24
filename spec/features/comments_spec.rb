@@ -3,13 +3,20 @@ require 'spec_helper'
 
 describe "user comments" do
   feature "writing comments" do
-    it "displays comment form on user's show page" do
+    let!(:first_user) {FactoryGirl.create(:user)}
+    let!(:second_user) {FactoryGirl.create(:user)}
+    let!(:comment) {FactoryGirl.create(:user_comment,
+                                       author: second_user,
+                                       user: first_user)}
 
+    it "displays comment form on user's show page" do
+      visit user_url(first_user)
+      expect(page).to have_button "Add Comment"
     end
 
     it "adds comment to user show page" do
-
-
+      visit user_url(first_user)
+      expect(page).to have_content comment.body
     end
   end
 
