@@ -77,8 +77,10 @@ feature "edit goals" do
   end
 
   it "updates edited fields" do
-
-
+    visit edit_goal_url(public_goal)
+    fill_in "Title", with: "New Title"
+    click_button("Edit Goal")
+    expect(page).to have_content "New Title"
   end
 
   it "if user clicks 'Goal Completed!', 'completed' attribute is now true" do
